@@ -1,0 +1,2 @@
+# wedding
+Wedding page
