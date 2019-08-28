@@ -30,11 +30,12 @@ html {
 }
 
 body {
-    font-family: "freight-text-pro", Georgia, serif;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: 'Impact';
     background: #FFFFFF;
     margin: 0;
     padding: 0;
-    color: #512838;
     font-size: 12px;
     line-height: 16px;
     overflow-x: hidden;
@@ -139,6 +140,12 @@ a:focus {
 
 input:-ms-input-placeholder {
     color: #9a9696 !important;
+}
+
+iframe {
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 15vw;
 }
 
 .loading_layer {
@@ -468,7 +475,6 @@ blockquote.visible .quote {
     font-size: 86px;
     line-height: 86px;
     color: #FFF;
-    text-shadow: -5px 5px 0 #512838;
 }
 
 .big_title h1::after {
@@ -592,7 +598,6 @@ blockquote.visible .quote {
     position: relative;
     width: 100%;
     text-align: center;
-    color: #FFF;
 }
 
 .header .wrapper {
@@ -604,9 +609,7 @@ blockquote.visible .quote {
     position: absolute;
     top: 20%;
     bottom: auto;
-    left: 50%;
     width: 580px;
-    margin-left: -290px;
     -webkit-transition: top 400ms ease-out;
     -moz-transition: top 400ms ease-out;
     -ms-transition: top 400ms ease-out;
@@ -615,18 +618,14 @@ blockquote.visible .quote {
 }
 
 .header .title h1 {
-    font-size: 100px;
-    line-height: 100px;
+    font-size: 10vw;
+    line-height: 100%;
     margin-bottom: 30px;
-    font-weight: 900;
-    font-style: italic;
 }
 
 .header .title p {
     font-size: 22px;
     line-height: 28px;
-    font-family: 'Roboto Slab';
-    text-shadow: 2px 2px 0px #512838;
 }
 
 .header small {
@@ -661,11 +660,9 @@ blockquote.visible .quote {
 
 .panel .title {
     position: absolute;
-    top: 20%;
     bottom: auto;
-    left: 50%;
-    width: 580px;
-    margin-left: -290px;
+    width: 100%;
+    top: 20%;
     -webkit-transition: top 400ms ease-out;
     -moz-transition: top 400ms ease-out;
     -ms-transition: top 400ms ease-out;
@@ -674,18 +671,27 @@ blockquote.visible .quote {
 }
 
 .panel .title h1 {
-    font-size: 100px;
-    line-height: 100px;
+    font-size: 9vw;
+    line-height: 100%;
     margin-bottom: 30px;
-    font-weight: 900;
-    font-style: italic;
 }
 
 .panel .title p {
     font-size: 22px;
     line-height: 28px;
-    font-family: 'Roboto Slab';
-    text-shadow: 2px 2px 0px #512838;
+}
+
+.panel#waterfall .title {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin-left: 3vw;
+}
+
+.panel#waterfall .title p {
+    font-size: 22px;
+    line-height: 28px;
+    text-align: left;
 }
 
 .panel small {
@@ -712,6 +718,7 @@ blockquote.visible .quote {
 @media screen and (min-width: 0px) and (max-width: 1280px) {
     .header .title {
         top: 10%;
+        width: 100%;
     }
 }
 
@@ -722,6 +729,7 @@ blockquote.visible .quote {
     }
     .header .title {
         top: 28%;
+        width: 100%;
     }
     .header small {
         bottom: 0;
@@ -739,6 +747,9 @@ blockquote.visible .quote {
     .main_text .wrapper p {
         font-size: 16px;
         line-height: 30px;
+    }
+    .panel#waterfall .title p {
+        text-align: center;
     }
     blockquote {
         padding: 15px 10px;
@@ -793,24 +804,6 @@ blockquote.visible .quote {
     .header {
         overflow: hidden;
     }
-    .header .itemAnim {
-        width: 100%;
-    }
-    .header .itemAnim.title {
-        width: 374px;
-        margin-left: -187px;
-        top: 22%;
-    }
-    .header .itemAnim.title h1 {
-        font-size: 70px;
-        line-height: 70px;
-        margin-bottom: 20px;
-    }
-    .header .itemAnim.title p {
-        font-size: 15px;
-        line-height: 24px;
-        text-shadow: 3px 2px 0px #512838;
-    }
     blockquote {
         font-size: 24px;
         line-height: 36px;
@@ -830,7 +823,6 @@ blockquote.visible .quote {
         font-size: 38px;
         line-height: 38px;
         width: 90%;
-        text-shadow: -2px 2px 0 #512838;
     }
     .big_title h1::after {
         margin-top: -22px !important;
@@ -838,18 +830,6 @@ blockquote.visible .quote {
 }
 
 @media screen and (min-width: 0px) and (max-width: 374px) {
-    .header .itemAnim.title {
-        width: 320px;
-        margin-left: -160px;
-    }
-    .header .itemAnim.title h1 {
-        font-size: 58px;
-        line-height: 58px;
-    }
-    .header .itemAnim.title p {
-        font-size: 13px;
-        line-height: 20px;
-    }
     .big_title h1 {
         max-width: 320px;
         font-size: 34px;
