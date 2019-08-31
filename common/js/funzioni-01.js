@@ -140,27 +140,10 @@ $(document).ready(function () {
             perc = Math.round((preload_i*100) / instance.images.length);
         });
 
-    // // Plugin okshadow 
-    // if(deviceWidth > 640) {
-    //     $('.header .title h1').okshadow({
-    //         color: '#512838',
-    //         textShadow: true,
-    //         xMax: 15,
-    //         xOffset: 0,
-    //         yMax: 15,
-    //         yOffset: 15,
-    //         fuzzMin: 0,
-    //         fuzzMax: 0,
-    //         fuzzFactor: 0
-    //     });
-    // } else {
-    //     $('.header .title h1').css('text-shadow','10px 10px 0px #512838')
-    // }
-
     // Click to snap sidebar
     $('.sidebar .bar .dot').each(function(i, el) {
         $(el).click(function() {
-            scrollToDiv('.' + $(el).data('section'), 2200);
+            scrollToDiv('#' + $(el).data('section'), 2200);
         })
     });
 
@@ -233,15 +216,24 @@ function resizeVisual() {
             'width': deviceHeight*1.5,
             'left': (deviceWidth-deviceHeight*1.5)*0.8
         });
+        $('#balls').css({
+            'height': deviceHeight,
+            'width': deviceHeight*1.5,
+            'left': (deviceWidth-deviceHeight*1.5)*0.8
+        });
         $('#waterfall').css({
             'height': deviceHeight,
             'width': deviceHeight*1.5,
-            'left': (deviceWidth-deviceHeight*1.5)*0.7
+            'left': (deviceWidth-deviceHeight*1.5)*0.8
+        });
+        $('#boxes .title, #balls .title, #waterfall .title').css({
+            'width': deviceWidth,
+            'left': (deviceWidth-deviceHeight*1.5)*-0.8
         });
         $('iframe').css({
             'height': deviceHeight,
             'width': deviceWidth,
-            'left': (deviceHeight*1.5-deviceWidth)*0.7
+            'left': (deviceHeight*1.5-deviceWidth)*0.8
         });
     } else {
         $('#stars').css({
@@ -254,8 +246,17 @@ function resizeVisual() {
             'width': deviceWidth,
             'left': 0
         });
+        $('#balls').css({
+            'height': deviceWidth*2/3,
+            'width': deviceWidth,
+            'left': 0
+        });
         $('#waterfall').css({
             'height': deviceWidth*2/3,
+            'width': deviceWidth,
+            'left': 0
+        });
+        $('#boxes .title, #balls .title, #waterfall .title').css({
             'width': deviceWidth,
             'left': 0
         });
@@ -272,7 +273,7 @@ function resizeVisual() {
 * Scrolling effects
 * Background color change
 */
-var pageAnchors = [".header", "#stars", "#boxes", "#waterfall"];
+var pageAnchors = [".header", "#stars", "#boxes",  "#balls", "#waterfall"];
 
 function updateBackground() {
     //console.clear();
@@ -310,8 +311,8 @@ function updateSidebar() {
         //console.clear();
 
         var bar = $('.sidebar .sect.s0 .progress');
-        var currentSec = '.stars';
-        var sommaAltezze = 0;
+        var currentSec = '.header';
+        var pixelsAboveSection = 0;
         var hiddenPixelsAfterHeader = $(window).scrollTop() - $(pageAnchors[0]).offset().top;
         var pixelsAboveHeader = $(pageAnchors[0]).offset().top;
 
@@ -322,7 +323,7 @@ function updateSidebar() {
                 //console.log('skip --> ' + i);
                 $('.sidebar .sect.s' + i + ' .progress').css('height', '100%');
                 $('.sidebar .bar .dot.d' + i).addClass('on');
-                sommaAltezze = Math.round($(pageAnchors[i]).offset().top);
+                pixelsAboveSection = Math.round($(pageAnchors[i]).offset().top);
                 continue;
             } else {
                 // console.log('------');
@@ -335,13 +336,13 @@ function updateSidebar() {
             }
         }
 
-        if( hiddenPixelsAfterHeader >= $(pageAnchors[0]).height() && hiddenPixelsAfterHeader <= $(pageAnchors[1]).offset().top*2) {
+        if( hiddenPixelsAfterHeader >= $(pageAnchors[0]).height() && hiddenPixelsAfterHeader <= $(pageAnchors[4]).offset().top) {
             $('.sidebar').addClass('visible');
         } else {
             $('.sidebar').removeClass('visible');
         }
 
-        var scrollPercent = ( (hiddenPixelsAfterHeader - sommaAltezze) / pixelsAboveHeader ) * 100;
+        var scrollPercent = ( (hiddenPixelsAfterHeader - pixelsAboveSection) / pixelsAboveHeader ) * 100;
         bar.css('height', Math.round(scrollPercent) + '%');
 
     }
