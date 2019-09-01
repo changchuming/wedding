@@ -143,6 +143,7 @@ input:-ms-input-placeholder {
 }
 
 iframe {
+    overflow-scrolling: touch;
     -webkit-overflow-scrolling: touch;
     position: absolute;
     top: 15vw;
