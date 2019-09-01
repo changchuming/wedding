@@ -146,7 +146,7 @@ iframe {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     position: absolute;
-    top: 15vw;
+    top: 30vh;
 }
 
 .loading_layer {
@@ -592,12 +592,6 @@ blockquote.visible .quote {
     margin-left: 3vw;
 }
 
-.panel#waterfall .title p {
-    font-size: 22px;
-    line-height: 28px;
-    text-align: left;
-}
-
 .panel small {
     letter-spacing: 1px;
     position: absolute;
@@ -627,7 +621,7 @@ blockquote.visible .quote {
 }
 
 
-@media screen and (min-width: 0px) and (max-width: 991px) {
+@media screen and (min-width: 0px) and (max-width: 600px) {
     .header {
         padding-top: 0px;
     }
@@ -696,26 +690,5 @@ blockquote.visible .quote {
         width: 100%;
         font-size: 11px;
         line-height: 18px;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 640px) {
-    .sidebar {
-        right: 0 !important;
-        display: none !important;
-    }
-    .header {
-        overflow: hidden;
-    }
-    blockquote {
-        font-size: 24px;
-        line-height: 36px;
-        margin: 50px 0;
-    }
-    blockquote::before {
-        margin-bottom: 30px;
-    }
-    blockquote::after {
-        margin-top: 30px;
     }
 }
