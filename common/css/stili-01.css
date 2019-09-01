@@ -143,7 +143,7 @@ input:-ms-input-placeholder {
 }
 
 iframe {
-    overflow-Y: scroll;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     position: absolute;
     top: 15vw;
@@ -193,7 +193,7 @@ iframe {
 
 .menu {
     position: fixed;
-    overflow-Y: scroll;
+    overflow-y: scroll;
     background-color: #000;
     top: 100%;
     left: 0;
